@@ -1,0 +1,3 @@
+begin 
+	Writeln(MemAvail);
+end.
