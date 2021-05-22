@@ -3,7 +3,7 @@ INTERFACE
 Uses GRAPH, UnCode, SplinUnt, DOS, Config;
 
 Const
-     qmax = 1.0;
+     qmax = 2.0;
      amax = 75.0;
      Nmax = 3; {максимальное к-во слоев}
      NSplMax = 5; {макс. max к-во узлов интерполяции, N>1, N <> 3}

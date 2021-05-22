@@ -27,7 +27,7 @@ Var
      Lver : array[1..Nmax] of byte;
      lx,ly,ControlUpset, ControlWidth,ErCode,MaxY : integer;
      ratioX,ratioY,Qmean : RealType;
-     VectorX : array[-25..25] of RealType;
+     VectorX : array[-30..30] of RealType;
      VectorY : array[0..35] of RealType;
      GorizCode : string ;
      Grunt : array[1..Nmax] of plast;
@@ -195,7 +195,7 @@ Begin
        Moveto(lx,ly);
        lineREL(0,MaxY-ly); end
        else begin end;
-       Waria := 4*amax;
+       Waria := 2*amax;
        h := 0.01*Waria;
        this := beg;
       while (this <> nil) do
@@ -309,7 +309,7 @@ Begin
        SetTextJustify(Righttext,Toptext);
         OutText(st);
       SetTextJustify(Righttext,Centertext);
-      MoveTo(lx,ly);
+      MoveTo(GetmaxX,ly);
       for i := 1 to M do
       begin
         MoveRel(0,dxf);
@@ -317,8 +317,8 @@ Begin
         Str(a:3:0,st);
         OutText(st);
        end;
-      MoveTo(lx,GetmaxY);
-      SetTextJustify(Lefttext,Bottomtext);
+      MoveTo(GetmaxX,GetmaxY);
+      SetTextJustify(Righttext,Bottomtext);
       OutText(TitleH);
 
       MoveTo(0,0);
@@ -387,6 +387,7 @@ begin
     ly-round(Seval(N,midpoint,U, X, Y, B, C, D)*ratioY))
     end;
    end;
+   {построение средней линии}
    SetLinestyle(3,0,1);
    Qmean := Simpson(X[1],X[N])/(X[N]-X[1]);
    Line(lx+round(X[1]*ratioX),ly-round(Qmean*ratioY),
