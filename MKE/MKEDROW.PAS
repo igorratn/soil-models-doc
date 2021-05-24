@@ -96,7 +96,7 @@ Begin
        PutSpline(N,X,Y,B,C,D);
        SetColor(White);
        SetTextJustify(Lefttext,toptext);
-       OutTextXY(0,60, ' ' + paramstr(1));
+       OutTextXY(0,15, ' ' + paramstr(1));
        {Str(Qmean:5:3,st);
        OutTextXY(0,40,' qcp = '+st+' kg/cm');}
        {Repeat
