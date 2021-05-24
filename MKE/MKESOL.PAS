@@ -303,7 +303,7 @@ Begin {GetSpline}
                CursorOn;
                halt
          end;
-       Writeln('          P  R  O  C  E  S  S  ...');
+       Writeln('          PROCESSING ...');
  end;{GetSpline}
 {--------------------}
 Procedure SoundDemo;
@@ -405,13 +405,13 @@ close(t);
 }
 Close(OutArh);
 ClrScr;
-Writeln('          T H E   E N D');
-Repeat
-delay(100);
+Writeln('          DONE');
+{Repeat
+delay(100);}
   {SoundDemo}
-Until Keypressed;
+{Until Keypressed;
 ClrKey := ReadKey;
-CursorOn;
+CursorOn;}
 end.
 
 

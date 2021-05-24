@@ -94,16 +94,17 @@ Begin
        end;
        Setka(mas);
        PutSpline(N,X,Y,B,C,D);
-       SetColor(Yellow);
+       SetColor(White);
        SetTextJustify(Lefttext,toptext);
-       Str(Qmean:5:3,st);
-       OutTextXY(0,40,' qáà  = '+st+' ªƒ/á¬');
-       Repeat
+       OutTextXY(0,60, ' ' + paramstr(1));
+       {Str(Qmean:5:3,st);
+       OutTextXY(0,40,' qcp = '+st+' kg/cm');}
+       {Repeat
              delay(100)
        Until KeyPressed;
        ClrKey := ReadKey;
-       if ord(ClrKey) = 27 then begin closegraph;halt end;
-close(data);
+       if ord(ClrKey) = 27 then begin closegraph;halt end;}
+ close(data);
  SizeofScr := Sizeof(TypeScr);
  for i := 1 to m2-1 do GetMem(PtrScr[i],(2*ControlWidth+1)*SizeofScr);
 GetData;
