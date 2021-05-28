@@ -3,7 +3,7 @@ INTERFACE
 Uses GRAPH, UnCode, SplinUnt, DOS, Config;
 
 Const
-     qmax = 2.0;
+     qmax = 1.0;
      amax = 75.0;
      Nmax = 3; {максимальное к-во слоев}
      NSplMax = 5; {макс. max к-во узлов интерполяции, N>1, N <> 3}
@@ -388,10 +388,10 @@ begin
     end;
    end;
    {построение средней линии}
-   {SetLinestyle(3,0,1);
+   SetLinestyle(3,0,1);
    Qmean := Simpson(X[1],X[N])/(X[N]-X[1]);
    Line(lx+round(X[1]*ratioX),ly-round(Qmean*ratioY),
-   lx+round(X[N]*ratioX),ly-round(Qmean*ratioY));}
+   lx+round(X[N]*ratioX),ly-round(Qmean*ratioY));
    SetLinestyle(1,0,1);
 end;{PutSpline}
 end.

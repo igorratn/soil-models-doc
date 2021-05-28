@@ -1,4 +1,4 @@
-Program LAPLAS;{��।������ ��砫��� ����殮��� � ����த��� �।�}
+Program LAPLAS;{определение начальных напряжений в однородной среде}
 Uses Config, UNCode, PutScr, Crt, AnalLapl, Graph, FuncLoad;
 Const
       mas = 1;
@@ -6,7 +6,7 @@ Var data : text;
     ClrKey : char;
     i,j,Nf,m1,m2: integer;
 {----------------------------------}
-Procedure GetSpline; {��ந� ᯫ���}
+Procedure GetSpline; {Строим сплайн}
 Var
    j : byte;
    st : string;
@@ -44,7 +44,7 @@ Begin
              Grunt[Lgr].Fi := Grunt[Lgr].Fi*pi/180
       until eof(data);
             
-      {���樠������ ࠧ������}
+      {инициализация разбиения}
        Lgor := 0;
        UnCoding(GorizCode,this,last,Beg,Lgor,ErCode);
        m1 := 2*lgor+1;
@@ -63,7 +63,7 @@ Begin
        SetColor(Yellow);
        SetTextJustify(Lefttext,toptext);
        Str(Qmean:5:3,st);
-       OutTextXY(0,40,' q��  = '+st+' ��/�');
+       {OutTextXY(0,40,' q  = '+st+' kg/cm^2');}
        Repeat
              delay(100)
        Until KeyPressed;
@@ -74,10 +74,10 @@ close(data);
  for i := 1 to m2-1 do GetMem(PtrScr[i],(2*ControlWidth+1)*SizeofScr);
 
 {
- ----------------������ ����஢��---------------
+ ----------------Таблица кодировки---------------
        Nf                  function
  ------------------------------------------------
-     �������᪮� �襭�� � ����ய��� �।�
+     Аналитическое решение в изотропной среде
        0                  SigmaX
        1                  SigmaZ
        2                  TetaMax
@@ -90,12 +90,10 @@ close(data);
 setlinestyle(0,0,NormWidth);
 setwritemode(0);
 SETcolor(Green);
-Linelab(11,30);
+Linelab(12,20);
 Repeat
        delay(100)
 until KeyPressed;
 ClrKey := ReadKey;
 CloseGraph;
 end.
-
-

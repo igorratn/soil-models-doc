@@ -2,8 +2,8 @@ UNIT LDL;
 INTERFACE
 USES Config;
 Const R = 1;
-      dem = 1260;
-        m = 93;
+      dem = 462;
+        m = 45;
 Type
       typeb = array[1..dem,1..R] of realtype;
       RealPoint = ^RealType;

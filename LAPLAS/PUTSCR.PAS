@@ -1,15 +1,15 @@
-UNIT PutScr;{ построение экрана}
+UNIT PutScr;{ ╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╤Н╨║╤А╨░╨╜╨░}
 INTERFACE
 Uses GRAPH, UnCode, SplinUnt, DOS, Config;
 
 Const
-     qmax = 2.0;
+     qmax = 1.0;
      amax = 75.0;
-     Nmax = 3; {максимальное к-во слоев}
-     NSplMax = 5; {макс. max к-во узлов интерполяции, N>1, N <> 3}
+     Nmax = 3; {╨╝╨░╨║╤Б╨╕╨╝╨░╨╗╤М╨╜╨╛╨╡ ╨║-╨▓╨╛ ╤Б╨╗╨╛╨╡╨▓}
+     NSplMax = 5; {╨╝╨░╨║╤Б. max ╨║-╨▓╨╛ ╤Г╨╖╨╗╨╛╨▓ ╨╕╨╜╤В╨╡╤А╨┐╨╛╨╗╤П╤Ж╨╕╨╕, N>1, N <> 3}
      midpoint :byte = 2;
      EqealFlag :boolean = false;
-     UnEqealFlag : boolean = true;
+     UnEqealFlag : boolean = false;
 Type
 
      plast = record
@@ -31,8 +31,8 @@ Var
      VectorY : array[0..35] of RealType;
      GorizCode : string ;
      Grunt : array[1..Nmax] of plast;
-Procedure Setka(mas:byte);   {построение координатной сетки}
-Procedure PutSpline(N:byte; var X,Y,B,C,D : RealTypeArray);{построение сплайна}
+Procedure Setka(mas:byte);   {╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╨║╨╛╨╛╤А╨┤╨╕╨╜╨░╤В╨╜╨╛╨╣ ╤Б╨╡╤В╨║╨╕}
+Procedure PutSpline(N:byte; var X,Y,B,C,D : RealTypeArray);{╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╤Б╨┐╨╗╨░╨╣╨╜╨░}
 Procedure OpenGraph;
 Procedure CursorOn;
 Procedure CursorOff;
@@ -99,7 +99,7 @@ Begin
    end;
   Simpson := (I + Seval(N,midpoint,Bs, X, Y, B, C, D))*H/3
 end;
-Procedure Setka; {построение координатной сетки}
+Procedure Setka; {╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╨║╨╛╨╛╤А╨┤╨╕╨╜╨░╤В╨╜╨╛╨╣ ╤Б╨╡╤В╨║╨╕}
 
 Var
      a,h,curs : RealType;
@@ -123,22 +123,22 @@ Begin
       setbkColor(Black);
 
       if EqealFlag then begin
-       {Р а в н о м е р н а я   с е т к а}
+       {╨а ╨░ ╨▓ ╨╜ ╨╛ ╨╝ ╨╡ ╤А ╨╜ ╨░ ╤П   ╤Б ╨╡ ╤В ╨║ ╨░}
        SetColor(EqealColor);
-       {вертикальная сетка в нижней полуплоскости}
+       {╨▓╨╡╤А╤В╨╕╨║╨░╨╗╤М╨╜╨░╤П ╤Б╨╡╤В╨║╨░ ╨▓ ╨╜╨╕╨╢╨╜╨╡╨╣ ╨┐╨╛╨╗╤Г╨┐╨╗╨╛╤Б╨║╨╛╤Б╤В╨╕}
        for i := -NX to NX do
         begin
         Moveto(lx+DXF*i,ly);
         lineREL(0,GetMaxY)
        end;
-       {горизонтальная сетка в нижней полуплоскости}
+       {╨│╨╛╤А╨╕╨╖╨╛╨╜╤В╨░╨╗╤М╨╜╨░╤П ╤Б╨╡╤В╨║╨░ ╨▓ ╨╜╨╕╨╢╨╜╨╡╨╣ ╨┐╨╛╨╗╤Г╨┐╨╗╨╛╤Б╨║╨╛╤Б╤В╨╕}
        for i := 1 to M do
         begin
         Moveto(0,ly+DXF*i);
         lineREL(GetMaxX,0)
        end;
       end else begin end;
-      {н е р а в н о м е р н а я    с е т к а}
+      {╨╜ ╨╡ ╤А ╨░ ╨▓ ╨╜ ╨╛ ╨╝ ╨╡ ╤А ╨╜ ╨░ ╤П    ╤Б ╨╡ ╤В ╨║ ╨░}
        SetColor(UnEqealColor);
     curs := 0;
     k := 0;
@@ -281,7 +281,7 @@ Begin
         ControlWidth := k;
         VectorX[k+1] := curs;
 
-   {разметка}
+   {╤А╨░╨╖╨╝╨╡╤В╨║╨░}
       SetColor(white);
       SetLinestyle(0,0,1);
       Rectangle(0,ly,GetMaxX,GetMaxY);
@@ -327,14 +327,14 @@ Begin
       OutText(Scrip)
 end;{Setka}
 {--------------------------------------}
-Procedure PutSpline;{построение сплайна}
+Procedure PutSpline;{╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╤Б╨┐╨╗╨░╨╣╨╜╨░}
 Const
-      L = 10;{к-во точек между узлами интерполяции}
+      L = 10;{╨║-╨▓╨╛ ╤В╨╛╤З╨╡╨║ ╨╝╨╡╨╢╨┤╤Г ╤Г╨╖╨╗╨░╨╝╨╕ ╨╕╨╜╤В╨╡╤А╨┐╨╛╨╗╤П╤Ж╨╕╨╕}
 Var
  i,j : integer;
  U,q : RealType;
 begin
-       {построение сетки}
+       {╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╤Б╨╡╤В╨║╨╕}
 
        SetColor(Brown);
        Moveto(lx+dx*delX,ly);
@@ -387,7 +387,7 @@ begin
     ly-round(Seval(N,midpoint,U, X, Y, B, C, D)*ratioY))
     end;
    end;
-   {построение средней линии}
+   {╨┐╨╛╤Б╤В╤А╨╛╨╡╨╜╨╕╨╡ ╤Б╤А╨╡╨┤╨╜╨╡╨╣ ╨╗╨╕╨╜╨╕╨╕}
    SetLinestyle(3,0,1);
    Qmean := Simpson(X[1],X[N])/(X[N]-X[1]);
    Line(lx+round(X[1]*ratioX),ly-round(Qmean*ratioY),
@@ -395,4 +395,3 @@ begin
    SetLinestyle(1,0,1);
 end;{PutSpline}
 end.
-
