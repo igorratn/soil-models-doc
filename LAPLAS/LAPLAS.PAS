@@ -90,7 +90,7 @@ close(data);
 setlinestyle(0,0,NormWidth);
 setwritemode(0);
 SETcolor(Green);
-Linelab(12,20);
+Linelab(11,20);
 Repeat
        delay(100)
 until KeyPressed;

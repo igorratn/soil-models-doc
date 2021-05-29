@@ -8,7 +8,7 @@ Const
      Nmax = 3; {максимальное к-во слоев}
      NSplMax = 5; {макс. max к-во узлов интерполяции, N>1, N <> 3}
      midpoint :byte = 2;
-     EqealFlag :boolean = false;
+     EqealFlag :boolean = true;
      UnEqealFlag : boolean = false;
 Type
 
