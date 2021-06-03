@@ -1,3 +1,0 @@
-begin 
-	Writeln(MemAvail);
-end.
