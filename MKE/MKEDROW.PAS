@@ -165,10 +165,10 @@ close(outArh);
 }
 setlinestyle(0,0,NormWidth);
 setwritemode(0);
-SETcolor(Green);
-Linelab(11,15);
-{SETcolor(Red);
-Linelab(4,25);}
+{SETcolor(Green);
+Linelab(11,15);}
+SETcolor(Red);
+Linelab(4,20);
 Repeat
        delay(100)
 until KeyPressed;
