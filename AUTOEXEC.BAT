@@ -1,0 +1,6 @@
+@ECHO On
+PROMPT $d$q$t$h$h$h$h$h$h$b$p$g
+PATH C:\DOS;E:\NORTON;C:\USER;C\BAT;C:\ARC;D:\MSF5;D:\CHIWRITE;
+C:
+CD NORTON
+NC
